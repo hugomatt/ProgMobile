@@ -4,14 +4,14 @@
         <item
             android:id="@+id/nav_first_fragment"
             android:icon="@drawable/ic_one"
-            android:title="First" />
+            android:title="API" />
         <item
             android:id="@+id/nav_second_fragment"
             android:icon="@drawable/ic_two"
-            android:title="Second" />
+            android:title="Map" />
         <item
             android:id="@+id/nav_third_fragment"
             android:icon="@drawable/ic_three"
-            android:title="Third" />
+            android:title="Youtube" />
     </group>
 </menu>

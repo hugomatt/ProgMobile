@@ -2,10 +2,11 @@
     <string name="app_name">Prog Mobile</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Page une</string>
-    <string name="hello_blank_fragment2">Page deux</string>
-    <string name="hello_blank_fragment3">Page trois</string>
+    <string name="hello_blank_fragment">API</string>
+    <string name="hello_blank_fragment2">Map</string>
+    <string name="hello_blank_fragment3">Youtube</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-    <string name="header_text">Menu</string>
+    <string name="header_text">Feitoria</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
