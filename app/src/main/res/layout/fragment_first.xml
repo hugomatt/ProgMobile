@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:textSize="26sp"
-        android:text="Below ListView is populated from RETROFIT JSON Data"
         android:textColor="#000"
         />
 
