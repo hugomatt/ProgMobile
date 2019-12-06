@@ -7,8 +7,8 @@ import retrofit2.http.GET;
 
 public interface API_REST {
 
-    String URL = "https://demonuts.com/Demonuts/JsonTest/Tennis/";
+    String URL = "https://raw.githubusercontent.com/hugomatt/ProgMobile/Developpe/app/";
 
-    @GET("json_parsing.php")
+    @GET("dogs_data.json")
     Call<List<Chiens>> GetChien();
 }

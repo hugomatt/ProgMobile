@@ -82,11 +82,6 @@ public class FirstFragment extends Fragment {
         chien.setName("Tweed");
         chien.setUrl("");
 
-        chiensList.add(chien);
-        chiensList.add(chien);
-        chiensList.add(chien);
-        chiensList.add(chien);
-
         layoutManager = new LinearLayoutManager(getContext());
         chienRecyclerView.setLayoutManager(layoutManager);
         mAdapter = new MyAdapter(chiensList);
