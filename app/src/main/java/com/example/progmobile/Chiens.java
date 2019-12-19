@@ -1,16 +1,22 @@
 package com.example.progmobile;
 
+import android.graphics.Picture;
+import android.media.Image;
+import android.net.LinkAddress;
+import android.widget.ImageView;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.squareup.picasso.Picasso;
 
 public class Chiens {
 
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("url")
+    @SerializedName("image")
     @Expose
-    private String url;
+    private ImageView image;
     @SerializedName("age")
     @Expose
     private String age;
@@ -25,11 +31,11 @@ public class Chiens {
         this.name=name;
     }
 
-    public String getUrl() {
-        return url;
+    public ImageView getPic() {
+        return image;
     }
-    public void setUrl(String url) {
-        this.url = url;
+    public void setPic(ImageView image) {
+        this.image = image;
     }
 
     public String getAge(){
