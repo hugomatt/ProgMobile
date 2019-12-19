@@ -11,6 +11,9 @@ public class Chiens {
     @SerializedName("url")
     @Expose
     private String url;
+    @SerializedName("age")
+    @Expose
+    private String age;
 
     public String getName(){
         return name;
@@ -25,4 +28,12 @@ public class Chiens {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public String getAge(){
+        return age;
+    }
+    public void setAge(String age){
+        this.age=age;
+    }
 }
+

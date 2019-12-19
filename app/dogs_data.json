@@ -1,11 +1,14 @@
 [
   {
-    "name": "Oscar"
+    "name": "Oscar",
+    "age": "1"
   },
   {
-    "name": "Jimmy"
+    "name": "Jimmy",
+    "age": "4"
   },
   {
-    "name": "Olla"
+    "name": "Olla",
+    "age": "5"
   }
 ]
