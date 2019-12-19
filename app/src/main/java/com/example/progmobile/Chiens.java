@@ -16,7 +16,7 @@ public class Chiens {
     private String name;
     @SerializedName("image")
     @Expose
-    private ImageView image;
+    private String image;
     @SerializedName("age")
     @Expose
     private String age;
@@ -31,10 +31,10 @@ public class Chiens {
         this.name=name;
     }
 
-    public ImageView getPic() {
+    public String getPic() {
         return image;
     }
-    public void setPic(ImageView image) {
+    public void setPic(String image) {
         this.image = image;
     }
 

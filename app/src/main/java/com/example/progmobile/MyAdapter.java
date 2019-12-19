@@ -1,6 +1,8 @@
 package com.example.progmobile;
 
 import android.content.Context;
+import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,37 +16,27 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.Holder> {
     private List<Chiens> values;
-    private Context context;
+    private Context mContext ;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class Holder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public ImageView imageView;
         public TextView txtHeader;
         public TextView txtSecond;
         public TextView txtThird;
 
-        public ViewHolder(View v) {
+        public Holder(View v) {
             super(v);
-            txtHeader = (TextView) v.findViewById(R.id.item_titre);
-            txtSecond = (TextView) v.findViewById(R.id.item_age);
-            txtThird = (TextView) v.findViewById(R.id.item_race);
-            imageView = (ImageView) v.findViewById(R.id.item_image);
+            txtHeader = v.findViewById(R.id.item_titre);
+            txtSecond = v.findViewById(R.id.item_age);
+            txtThird = v.findViewById(R.id.item_race);
+            imageView = v.findViewById(R.id.item_image);
         }
-    }
-
-    public void add(int position, Chiens item) {
-        values.add(position, item);
-        notifyItemInserted(position);
-    }
-
-    public void remove(int position) {
-        values.remove(position);
-        notifyItemRemoved(position);
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
@@ -54,30 +46,31 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     // Create new views (invoked by the layout manager)
     @Override
-    public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType) {
+    public Holder onCreateViewHolder(ViewGroup parent, int position) {
         // create a new view
-        LayoutInflater inflater = LayoutInflater.from(
-                parent.getContext());
-        View v =
-                inflater.inflate(R.layout.item, parent, false);
+        /*LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View v = inflater.inflate(R.layout.item, parent, false);
         // set the view's size, margins, paddings and layout parameters
-        ViewHolder vh = new ViewHolder(v);
-        context = parent.getContext();
-        return vh;
+        Holder vh = new Holder(v);
+        mContext = parent.getContext();
+        return vh;*/
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
+        return new Holder(view);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(Holder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         final Chiens chien = values.get(position);
-        Picasso.get().load("https://img.ohmymag.com/article/480/berger-australien/le-berger-australien-un-chien-a-la-mode_2795b1089670bbc13f5b4dd3f3423e18e0e0a7dd.jpg).into(holder.imageView").into(holder.imageView);
-        //Picasso.with(context).load(chien.getPic()).into(holder.imageView);
+        Picasso.get().load(chien.getPic()).into(holder.imageView);
         holder.txtHeader.setText(chien.getName());
         holder.txtSecond.setText(chien.getAge());
         holder.txtThird.setText(chien.getRace());
+        /*if(!chien.getPic().isEmpty()){
+            Picasso.with(mContext).load(chien.getPic()).into(holder.imageView);
+        }*/
 
     }
 
