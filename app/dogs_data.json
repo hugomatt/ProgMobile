@@ -1,14 +1,17 @@
 [
   {
     "name": "Oscar",
-    "age": "1"
+    "age": "1 ans",
+    "race": "Berger Australien"
   },
   {
     "name": "Jimmy",
-    "age": "4"
+    "age": "4 ans",
+    "race": "Berger Australien"
   },
   {
     "name": "Olla",
-    "age": "5"
+    "age": "5 ans",
+    "race": "Berger Australien"
   }
 ]

@@ -18,10 +18,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public TextView txtHeader;
+        public TextView txtSecond;
+        public TextView txtThird;
 
         public ViewHolder(View v) {
             super(v);
             txtHeader = (TextView) v.findViewById(R.id.item_titre);
+            txtSecond = (TextView) v.findViewById(R.id.item_age);
+            txtThird = (TextView) v.findViewById(R.id.item_race);
         }
     }
 
@@ -61,6 +65,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         // - replace the contents of the view with that element
         final Chiens chien = values.get(position);
         holder.txtHeader.setText(chien.getName());
+        holder.txtSecond.setText(chien.getAge());
+        holder.txtThird.setText(chien.getRace());
 
     }
 

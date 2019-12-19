@@ -14,6 +14,9 @@ public class Chiens {
     @SerializedName("age")
     @Expose
     private String age;
+    @SerializedName("race")
+    @Expose
+    private String race;
 
     public String getName(){
         return name;
@@ -34,6 +37,13 @@ public class Chiens {
     }
     public void setAge(String age){
         this.age=age;
+    }
+
+    public String getRace(){
+        return race;
+    }
+    public void setRace(String race){
+        this.race=race;
     }
 }
 

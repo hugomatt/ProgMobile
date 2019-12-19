@@ -80,7 +80,7 @@ public class FirstFragment extends Fragment {
 
         Chiens chien = new Chiens();
         chien.setName("Tweed");
-        chien.setAge("");
+        chien.setAge("Tweed");
         chien.setUrl("");
 
         layoutManager = new LinearLayoutManager(getContext());
