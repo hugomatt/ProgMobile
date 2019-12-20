@@ -19,6 +19,6 @@ En utilisant les services de google j'ai pu afficher dans mon deuxième fragment
 A cause des mise a jour constante du fonctionnement de GoogleMap je ne suis pas parvenu a faire fonctionner 
 la localisation automatique.
 
-  - Fragment 3: Youtbue
+  - Fragment 3: Youtube
 J'ai appris à manipuler la fonction WebView (je reconnais que c'est de la triche) et grâce à cette fonction j'affiche Youtube.
 
