@@ -1,110 +1,96 @@
 package com.example.progmobile;
-// mport android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.android.gms.location.LocationServices;
+
+import com.google.android.gms.location.LocationServices;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
+
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
-public class FirstFragment extends Fragment /*implements AppCompatActivity*/ {
+public class FirstFragment extends Fragment {
+    private RecyclerView chienRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
 
-    private ListView listView;
-    private RetroAdapter retroAdapter;
+    List<Chiens> chiensList = new ArrayList<>();
 
-    /* @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_first);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_first, container, false);
 
-        listView = findViewById(R.id.lv);
+        chienRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
 
-        getJSONResponse();
+        appelAPI();
 
+        return view;
     }
 
-    private void getJSONResponse(){
-
+    void appelAPI(){
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(MyInterface.JSONURL)
-                .addConverterFactory(ScalarsConverterFactory.create())
+                .baseUrl(API_REST.URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
-
-        MyInterface api = retrofit.create(MyInterface.class);
-
-        Call<String> call = api.getString();
-
-        call.enqueue(new Callback<String>() {
+        final API_REST response = retrofit.create(API_REST.class);
+        Call<List<Chiens>> call = (response).GetChien();
+        call.enqueue(new Callback<List<Chiens>>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                Log.i("Responsestring", response.body().toString());
-                //Toast.makeText()
-                if (response.isSuccessful()) {
-                    if (response.body() != null) {
-                        Log.i("onSuccess", response.body().toString());
-
-                        String jsonresponse = response.body().toString();
-                        writeListView(jsonresponse);
-
-                    } else {
-                        Log.i("onEmptyResponse", "Returned empty response");//Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
-                    }
-                }
+            public void onResponse(Call<List<Chiens>> call, Response<List<Chiens>> response) {
+                chiensList=response.body();
+                creationList(chiensList);
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
-
+            public void onFailure(Call<List<Chiens>> call, Throwable t) {
+                Log.d("ERROR", "API ERROR");
             }
         });
     }
 
-    private void writeListView(String response){
+    void creationList(List<Chiens> chiensList){
 
-        try {
-            //getting the whole json object from the response
-            JSONObject obj = new JSONObject(response);
-            if(obj.optString("status").equals("true")){
 
-                ArrayList<ModelListView> modelListViewArrayList = new ArrayList<>();
-                JSONArray dataArray  = obj.getJSONArray("data");
+        Chiens chien = new Chiens();
+        chien.setName("Tweed");
+        chien.setAge("Tweed");
 
-                for (int i = 0; i < dataArray.length(); i++) {
+        layoutManager = new LinearLayoutManager(getContext());
+        chienRecyclerView.setLayoutManager(layoutManager);
+        mAdapter = new MyAdapter(chiensList);
+        chienRecyclerView.setAdapter(mAdapter);
 
-                    ModelListView modelListView = new ModelListView();
-                    JSONObject dataobj = dataArray.getJSONObject(i);
 
-                    modelListView.setImgURL(dataobj.getString("imgURL"));
-                    modelListView.setName(dataobj.getString("name"));
-                    modelListView.setCountry(dataobj.getString("country"));
-                    modelListView.setCity(dataobj.getString("city"));
-
-                    modelListViewArrayList.add(modelListView);
-
-                }
-
-                retroAdapter = new RetroAdapter(this, modelListViewArrayList);
-                listView.setAdapter(retroAdapter);
-
-            }else {
-                Toast.makeText(FirstFragment.this, obj.optString("message")+"", Toast.LENGTH_SHORT).show();
-            }
-
-        } catch ( JSONException e) {
-            e.printStackTrace();
-        }
-
-    }*/
-
+    }
 }
+
