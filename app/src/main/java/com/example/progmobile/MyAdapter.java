@@ -18,7 +18,6 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.Holder> {
     private List<Chiens> values;
-    private Context mContext ;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -68,9 +67,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.Holder> {
         holder.txtHeader.setText(chien.getName());
         holder.txtSecond.setText(chien.getAge());
         holder.txtThird.setText(chien.getRace());
-        /*if(!chien.getPic().isEmpty()){
-            Picasso.with(mContext).load(chien.getPic()).into(holder.imageView);
-        }*/
 
     }
 
