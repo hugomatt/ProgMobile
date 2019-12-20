@@ -1,0 +1,50 @@
+[
+  {
+    "image" : "https://img.ohmymag.com/article/480/berger-australien/le-berger-australien-un-chien-a-la-mode_2795b1089670bbc13f5b4dd3f3423e18e0e0a7dd.jpg",
+    "name": "Oscar",
+    "age": "1 ans",
+    "race": "Berger Australien"
+  },
+  {
+    "image" : "https://www.woopets.fr/assets/races/000/284/big-portrait/shiba-inu.jpg",
+    "name": "Jimmy",
+    "age": "4 ans",
+    "race": "Shiba Inu"
+  },
+  {
+    "image" : "https://www.woopets.fr/assets/races/000/281/big-portrait/setter-gordon.jpg",
+    "name": "Olla",
+    "age": "5 ans",
+    "race": "Seter gordon"
+  },
+  {
+    "image" : "https://mediasv6.truffaut.com/Articles/jpg/0691000/691519_001_1000.jpg",
+    "name": "Max",
+    "age": "2 ans",
+    "race": "Husky"
+  },
+  {
+    "image" : "https://www.dogxs.fr/wp-content/uploads/2019/01/Le-Caniche-442x442.jpg",
+    "name": "Cléo",
+    "age": "8 ans",
+    "race": "Caniche"
+  },
+  {
+    "image" : "https://img.point.pet/images/Golden_Retriever-56a268653df78cf772753a72.jpg",
+    "name": "Argan",
+    "age": "5 ans",
+    "race": "Golden retriver"
+  },
+  {
+    "image" : "https://i.pinimg.com/originals/96/1e/3e/961e3e0d1163da26b7ab1021bf360911.jpg",
+    "name": "Bob",
+    "age": "9 ans",
+    "race": "Bulldog"
+  },
+  {
+    "image" : "https://i.pinimg.com/originals/49/17/5f/49175ffedf0eb8f94fc07d816e20d707.jpg",
+    "name": "Elfy",
+    "age": "1 ans",
+    "race": "Saint-Bernard"
+  }
+]
